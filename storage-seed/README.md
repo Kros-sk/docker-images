@@ -23,6 +23,7 @@ services:
       dockerfile: dockerfile
     environment:
       - TABLES=Table1,Table2
+      - HOST_NAME=storage
     depends_on:
-    - storage
+      - storage
 ```
