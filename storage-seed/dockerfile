@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/azure-cli
+
+COPY ./create-tables.sh /opt/
+ENTRYPOINT /bin/bash /opt/create-tables.sh ${TABLES}
