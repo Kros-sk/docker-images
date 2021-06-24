@@ -1,7 +1,7 @@
 # wait for connection
 for i in {1..50};
 do
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $1 -d master -U "SELECT 1" 2>/dev/null
+    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $1 -d master -U "SELECT 1" >/dev/null
     if [ $? -eq 0 ]
     then
         echo "connected!"
