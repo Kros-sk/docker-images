@@ -8,7 +8,7 @@ do
         break
     else
         echo "waiting for mssql server to start..."
-        sleep 1
+        sleep 3
     fi
 done
 
