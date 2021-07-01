@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  SQLServer:
+   image: sql-test
+   build:
+    context: ./mssql
+    dockerfile: dockerfile
+   environment:
+     - ACCEPT_EULA=Y
+     - SA_PASSWORD=Password_01
+     - MSSQL_PID=Developer
+     - DATABASES=authorization,companies,tasks,tags,projects,timelogs,notification,warehouses
+   ports:
+     - '1433:1433'
