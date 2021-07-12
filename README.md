@@ -2,5 +2,5 @@
 
 Base docker images
 
-- [MSSQL](./mssql/README.md)
+- [MSSQL-SEED](./mssql-seed/README.md)
 - [Storage Account table seeding](./storage-seed/README.md)

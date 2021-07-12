@@ -1,11 +1,12 @@
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql-tools
+
 COPY ./createdb.sql /opt/scripts/
 COPY ./entrypoint.sh /opt/entrypoint.sh
 COPY ./create-databases.sh /opt/
 
-USER root
+# USER root
 RUN chmod +x /opt/create-databases.sh
 RUN chmod +x /opt/entrypoint.sh
 
-USER mssql
-ENTRYPOINT /bin/bash /opt/entrypoint.sh ${SA_PASSWORD} ${DATABASES}
+# USER mssql
+ENTRYPOINT /bin/bash /opt/entrypoint.sh ${SA_PASSWORD} ${DATABASES} ${MSSQL_HOST_NAME}

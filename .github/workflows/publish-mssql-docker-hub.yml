@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Publish MSSQL to Docker Hub
+name: Publish MSSQL Seed to Docker Hub
 
 # Controls when the action will run. 
 on:
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - mssql/**
+      - mssql-seed/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Check Out Repo 
+      - name: Check Out Repo
         uses: actions/checkout@v2
 
       - name: Login to Docker Hub
@@ -39,10 +39,10 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./mssql
-          file: ./mssql/dockerfile
+          context: ./mssql-seed
+          file: ./mssql-seed/dockerfile
           push: true
-          tags: krossk/mssql:latest
+          tags: krossk/mssql-seed:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
